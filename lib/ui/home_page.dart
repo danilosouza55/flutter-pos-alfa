@@ -32,12 +32,8 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white, fontSize: 16)),
                 decoration: BoxDecoration(color: Color(0xff000077)),
               ),
-              ListTile(
-                title: Text("Compartilhar"),
-              ),
-              ListTile(
-                title: Text("Contato"),
-              ),
+              criarItemLista("Compartilhar", Icons.share, compartilhar),
+              criarItemLista("Contato", Icons.mail, abrirContato),
             ],
           ),
         ),
@@ -150,7 +146,17 @@ class _HomePageState extends State<HomePage> {
 
   Widget criarItemLista(String texto, IconData icone, Function func) {
     return ListTile(
-      title: Text(texto),
-    );
+        title: Row(
+      children: <Widget>[
+        Icon(
+          icone,
+          color: Color(0xff000077),
+        ),
+        Text(
+          texto,
+          style: TextStyle(color: Color(0xff000077), fontSize: 16),
+        )
+      ],
+    ));
   }
 }
