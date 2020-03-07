@@ -136,7 +136,8 @@ class _HomePageState extends State<HomePage> {
 
   void compartilhar() {
     Share.share(
-        "Etanol: R\$ ${etanolController.text} - Gasolina: R\$ ${gasolinaController.text}");
+        "Etanol: R\$ ${etanolController
+            .text} - Gasolina: R\$ ${gasolinaController.text}");
   }
 
   void abrirContato() {
@@ -146,17 +147,23 @@ class _HomePageState extends State<HomePage> {
 
   Widget criarItemLista(String texto, IconData icone, Function func) {
     return ListTile(
-        title: Row(
-      children: <Widget>[
-        Icon(
-          icone,
-          color: Color(0xff000077),
-        ),
-        Text(
-          texto,
-          style: TextStyle(color: Color(0xff000077), fontSize: 16),
-        )
-      ],
-    ));
+      title: Row(
+        children: <Widget>[
+          Icon(
+            icone,
+            color: Color(0xff000077),
+            size: 35,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 10),
+          ),
+          Text(
+            texto,
+            style: TextStyle(color: Color(0xff000077), fontSize: 20),
+          )
+        ],
+      ),
+      onTap: func,
+    );
   }
 }
